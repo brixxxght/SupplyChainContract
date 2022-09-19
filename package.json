@@ -1,5 +1,8 @@
 {
   "dependencies": {
     "@truffle/hdwallet-provider": "^2.0.14"
+  }, 
+  "scripts": {
+    "deploy": "truffle migrate --reset --network bscTestnet"
   }
 }

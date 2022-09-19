@@ -1,4 +1,5 @@
-const walletProvider = require("@truffle/hdwallet-provider");
+const HDWalletProvider = require("@truffle/hdwallet-provider");
+//const walletProvider = require("@truffle/hdwallet-provider");
 const privateKey = [
   "0fc5ca4a033448aecbd88fc74084c98a7a4f445afae5b5b7cfffd5838cc8f451",
 ];
@@ -100,11 +101,22 @@ module.exports = {
     //   network_id: 2111,   // This network is yours, in the cloud.
     //   production: true    // Treats this network as if it was a public net. (default: false)
     // }
+
+    //BSC Testnet
+    bscTestnet: {
+      provider: () =>
+        new HDWalletProvider(
+          privateKey,
+          "https://data-seed-prebsc-2-s1.binance.org:8545/"
+        ),
+      network_id: 97,
+      skipDryRun: true,
+    },
   },
 
   // Set default mocha options here, use special reporters, etc.
   mocha: {
-    // timeout: 100000
+    timeout: 100000,
   },
 
   // Configure your compilers
